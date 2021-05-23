@@ -24,12 +24,18 @@ import SignIn from './src/screens/SignIn'
 import SignUp from './src/screens/SignUp'
 import HomeScreen from './src/screens/HomeScreen';
 import Icon from 'react-native-vector-icons/Ionicons'
+import DrawerContent from './src/Navigator/DrawerContent'
+import Profile from './src/screens/ProfileScreen'
+import SettingsScreen from './src/screens/SettingsScreen'
+import  BookmarkScreen from './src/screens/BookmarkScreen'
+import SupportScreen from './src/screens/SupportScreen'
 
 
 const SplashStack = createStackNavigator();
 const SignInStack = createStackNavigator();
 const SignUpStack = createStackNavigator();
 const HomeStack = createStackNavigator();
+const  Stack = createStackNavigator();
 
 
 const SplashStackScreen = ()=>(
@@ -72,7 +78,6 @@ options={{
 )
 
 
-
 const Drawer = createDrawerNavigator();
 
 
@@ -84,11 +89,15 @@ const App = () => {
   return (
    
  <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
+      <Drawer.Navigator initialRouteName="Home" drawerContent={props => <DrawerContent {...props} />}>
         <Drawer.Screen name="SplashScreen" component={SplashStackScreen} />
         <Drawer.Screen name="SignIn" component={SignInStackScreen} />
-        <Drawer.Screen name="SignUp" component={SignUp} />
+        <Drawer.Screen  name="SignUp" component={SignUp} />
         <Drawer.Screen name="HomeScreen" component={HomeStackScreen} />
+          <Drawer.Screen name="Profile" component={Profile} />
+              <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
+              <Drawer.Screen  name="BookmarkScreen" component={BookmarkScreen} />
+              <Drawer.Screen name="SupportScreen" component={SupportScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
    
