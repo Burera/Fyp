@@ -1,14 +1,14 @@
 import React from "react";
 import { StyleSheet, Text, View, Image ,  Dimensions} from "react-native";
 
-const Logo = () => {
+const Logo = (props) => {
     return (
 
         <View style={styles.cont}>
 
             <Image
-                source={require("../../assets/k.png")}
-
+                //source={require("../../assets/k.png")}
+                 source={props.imgSource}
                 style={styles.imageStyling}
             />
 

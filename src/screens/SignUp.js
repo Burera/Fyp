@@ -26,8 +26,8 @@ const SignIn = ({ navigation }) => {
             <KeyboardAwareScrollView style={styles.header}>
                 <View style={styles.imgoo}>
 
-                    <Logo />
-
+                    <Logo imgSource={require("../../assets/SignUp.png")}/>
+          
                     <Text style={[styles.text_header, { fontFamily: 'Montserrat-SemiBold' }]}>
                     Welcome Onboard!
                </Text>
