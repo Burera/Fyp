@@ -23,6 +23,7 @@ import SplashScreen from './src/screens/SplashScreens'
 import SignIn from './src/screens/SignIn'
 import SignUp from './src/screens/SignUp'
 import HomeScreen from './src/screens/HomeScreen';
+import Icon from 'react-native-vector-icons/Ionicons'
 
 
 const SplashStack = createStackNavigator();
@@ -48,14 +49,25 @@ const SignInStackScreen = ()=>(
 <SignInStack.Screen name="SignIn" component={SignIn} />
   </SignInStack.Navigator>
 )
-const HomeStackScreen = ()=>(
+const HomeStackScreen = ({navigation})=>(
   <HomeStack.Navigator screenOptions={{
    headerStyle :{
      backgroundColor : '#50C2C9'
+   },
+   headerTintColor : 'white',
+   headerTitleAlign : 'center',
+   headerTitleStyle :{
+    fontWeight : 'bold'
    }
   }}>
 
-<HomeStack.Screen name="SplashScreen" component={HomeScreen} />
+<HomeStack.Screen name="Home" component={HomeScreen}
+options={{
+  headerLeft :()=>(
+    <Icon.Button name="ios-menu" size={25} backgroundColor ="#50C2C9" onPress={()=>navigation.openDrawer()}/>
+  )
+}}
+/>
   </HomeStack.Navigator>
 )
 
