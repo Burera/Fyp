@@ -22,12 +22,13 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import SplashScreen from './src/screens/SplashScreens'
 import SignIn from './src/screens/SignIn'
 import SignUp from './src/screens/SignUp'
+import HomeScreen from './src/screens/HomeScreen';
 
 
 const SplashStack = createStackNavigator();
 const SignInStack = createStackNavigator();
 const SignUpStack = createStackNavigator();
-
+const HomeStack = createStackNavigator();
 
 
 const SplashStackScreen = ()=>(
@@ -47,6 +48,18 @@ const SignInStackScreen = ()=>(
 <SignInStack.Screen name="SignIn" component={SignIn} />
   </SignInStack.Navigator>
 )
+const HomeStackScreen = ()=>(
+  <HomeStack.Navigator screenOptions={{
+   headerStyle :{
+     backgroundColor : '#50C2C9'
+   }
+  }}>
+
+<HomeStack.Screen name="SplashScreen" component={HomeScreen} />
+  </HomeStack.Navigator>
+)
+
+
 
 const Drawer = createDrawerNavigator();
 
@@ -63,6 +76,7 @@ const App = () => {
         <Drawer.Screen name="SplashScreen" component={SplashStackScreen} />
         <Drawer.Screen name="SignIn" component={SignInStackScreen} />
         <Drawer.Screen name="SignUp" component={SignUp} />
+        <Drawer.Screen name="HomeScreen" component={HomeStackScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
    
