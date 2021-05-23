@@ -10,8 +10,6 @@ import PasswordInput from '../Components/PasswordInput';
 import EmailInput from '../Components/EmailInput';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import Feather from 'react-native-vector-icons/Feather';
 
 import Logo from '../Components/Logo';
 import { useTheme } from '@react-navigation/native';
