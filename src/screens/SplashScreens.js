@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useTheme } from '@react-navigation/native';
 
 
@@ -46,7 +46,7 @@ const SplashScreens = ({navigation}) => {
                     style={styles.signIn}
                 >
                     <Text style={styles.textSign}>Get Started</Text>
-                    <MaterialIcons 
+                    <FontAwesome 
                         name="navigate-next"
                         color="#fff"
                         size={20}

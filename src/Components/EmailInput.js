@@ -72,6 +72,7 @@ const EmailInput = ({navigation}) => {
       <LinearGradient colors={['#E5E5E5', '#E5E5E5']} style={styles.Email}>
         <TextInput
           placeholder="Enter your email"
+          placeholderTextColor="rgba(0, 0, 0, 0.7)"
           onChangeText={val => textInputChange(val)}
           style={styles.textInput}
         />

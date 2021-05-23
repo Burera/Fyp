@@ -80,6 +80,7 @@ const PasswordInput = props => {
       <LinearGradient colors={['#E5E5E5', '#E5E5E5']} style={styles.Email}>
         <TextInput
           placeholder={props.pass}
+          placeholderTextColor="rgba(0, 0, 0, 0.7)"
           onChangeText={(val) => handlePasswordChange(val)}
           secureTextEntry={data.secureTextEntry ? true : false} style={styles.textInput}
         />
