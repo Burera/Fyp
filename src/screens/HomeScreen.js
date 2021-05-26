@@ -1,11 +1,12 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import * as Animatable from 'react-native-animatable';
-import DashboardList from '../Components/DashboardList';
 
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Logo from '../Components/Logo';
 import {useTheme} from '@react-navigation/native';
 import {Button} from 'react-native';
+import {Image} from 'react-native';
 
 const SignIn = ({navigation}) => {
   const {colors} = useTheme();
@@ -26,11 +27,33 @@ const SignIn = ({navigation}) => {
       </View>
       <View style={[styles.footer]}>
         <Animatable.View animation="fadeInUpBig">
-          <Button
-            title="Message"
+          <View
+            style={styles.boxWrapper}>
+            <View
+              style={styles.boxstyle}>
+               <MaterialCommunityIcons
+            name="send-circle"
+            style={{marginBottom: 5, marginRight: 5}}
+            size={43}
             color="#50C2C9"
-            onPress={() => navigation.navigate('MessageScreen')}
+            onPress ={()=>navigation.navigate('ChatScreen')}
           />
+              <Text style={styles.boxTxt} >Hello</Text>
+            </View>
+            <View
+              style={
+                styles.boxstyle
+              }>
+             <MaterialCommunityIcons
+            name="send-circle"
+            style={{marginBottom: 5, marginRight: 5}}
+            size={43}
+            color="#50C2C9"
+            onPress ={()=>navigation.navigate('ChatScreen')}
+          />
+              <Text style={styles.boxTxt}>Hello</Text>
+            </View>
+          </View>
         </Animatable.View>
       </View>
     </View>
@@ -80,4 +103,32 @@ const styles = StyleSheet.create({
     color: '#ff1744',
     fontSize: 18,
   },
+  img: {
+    width: 20,
+    height: 30,
+  },
+  boxWrapper :{
+  flexDirection: 'row',
+  width: 80,
+  
+  width: '100%',
+  paddingHorizontal: 20,
+  justifyContent: 'space-between',
+  
+  },
+  boxstyle : {
+   
+    width: '45%',
+    height: '100%',
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderColor : '#50C2C9',
+    borderWidth : 2,
+    
+  },
+  boxTxt : {
+    color :'#50C2C9',
+    fontWeight : 'bold'
+  }
 });
