@@ -89,7 +89,7 @@ const MessageStackScreen = ({navigation}) => (
       },
     }}>
     <MessageStack.Screen
-      name="MessageScreen"
+      name="Messages"
       component={MessageScreen}
       options={{
         headerLeft: () => (
@@ -133,7 +133,6 @@ const ChatStackScreen = ({navigation}) => (
     />
   </ChatStack.Navigator>
 );
-
 const Drawer = createDrawerNavigator();
 
 const App = () => {
