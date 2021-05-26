@@ -1,10 +1,11 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import * as Animatable from 'react-native-animatable';
-import LinearGradient from 'react-native-linear-gradient';
+import DashboardList from '../Components/DashboardList'
 
 import Logo from '../Components/Logo';
 import {useTheme} from '@react-navigation/native';
+import {Button} from 'react-native';
 
 const SignIn = ({navigation}) => {
   const {colors} = useTheme();
@@ -23,11 +24,17 @@ const SignIn = ({navigation}) => {
           </Text>
         </View>
       </View>
-      <View
-        style={[styles.footer]}
-        // animation="fadeInUpBig"
-      >
-        <Animatable.View animation="fadeInUpBig"></Animatable.View>
+      <View style={[styles.footer]}>
+        <Animatable.View animation="fadeInUpBig">
+          <Button
+            title="Message"
+            color="#50C2C9"
+            onPress={() => navigation.navigate('MessageScreen')}
+          />
+
+          
+        
+        </Animatable.View>
       </View>
     </View>
   );
@@ -49,7 +56,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   footer: {
-    flex: 2,
+    flex: 1,
 
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
@@ -76,50 +83,8 @@ const styles = StyleSheet.create({
     color: '#ff1744',
     fontSize: 18,
   },
-  text_footer_two: {
-    color: '#ff1744',
-    fontSize: 18,
-    // marginTop: 40,
-  },
+  
 
-  button: {
-    alignItems: 'center',
-    marginVertical: 10,
-  },
-  signIn: {
-    width: '100%',
-    height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 10,
-  },
-  sign: {
-    color: '#fff',
-    fontSize: 18,
-  },
-  textSign: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  or: {
-    color: '#05375a',
-    fontSize: 18,
-    marginTop: 20,
-    color: '#bcbcbc',
-  },
-  forget: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingVertical: 4,
-  },
-  forget_password: {
-    color: '#bcbcbc',
-    marginTop: 2,
-    fontSize: 15,
-  },
-  forget_signUp: {
-    paddingHorizontal: 10,
-    fontSize: 17,
-    color: '#50C2C9',
-  },
+
+  
 });

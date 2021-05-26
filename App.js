@@ -29,6 +29,8 @@ import Profile from './src/screens/ProfileScreen'
 import SettingsScreen from './src/screens/SettingsScreen'
 import  BookmarkScreen from './src/screens/BookmarkScreen'
 import SupportScreen from './src/screens/SupportScreen'
+import ChatScreen from './src/screens/ChatScreen'
+import MessageScreen from './src/screens/MessageScreen'
 
 
 const SplashStack = createStackNavigator();
@@ -98,6 +100,8 @@ const App = () => {
               <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
               <Drawer.Screen  name="BookmarkScreen" component={BookmarkScreen} />
               <Drawer.Screen name="SupportScreen" component={SupportScreen} />
+               <Drawer.Screen name="ChatScreen" component={ChatScreen} />
+                <Drawer.Screen name="MessageScreen" component={MessageScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
    
