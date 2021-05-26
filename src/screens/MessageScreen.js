@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet, FlatList } from 'react-native';
+import {View, Text, Button, StyleSheet, FlatList} from 'react-native';
 import {
   Container,
   Card,
@@ -12,7 +12,7 @@ import {
   MessageText,
   TextSection,
 } from '../Components/MessageStyles';
- 
+
 const Messages = [
   {
     id: '1',
@@ -56,42 +56,39 @@ const Messages = [
   },
 ];
 
- 
-
-
 const MessagesScreen = ({navigation}) => {
-    return (
-      <Container>
-        <FlatList 
-          data={Messages}
-          keyExtractor={item=>item.id}
-          renderItem={({item}) => (
-            <Card onPress={() => navigation.navigate('Chat', {userName: item.userName})}>
-              <UserInfo>
-                <UserImgWrapper>
-                  <UserImg source={item.userImg} />
-                </UserImgWrapper>
-                <TextSection>
-                  <UserInfoText>
-                    <UserName>{item.userName}</UserName>
-                    <PostTime>{item.messageTime}</PostTime>
-                  </UserInfoText>
-                  <MessageText>{item.messageText}</MessageText>
-                </TextSection>
-              </UserInfo>
-            </Card>
-          )}
-        />
-      </Container>
-    );
+  return (
+    <Container>
+      <FlatList
+        data={Messages}
+        keyExtractor={item => item.id}
+        renderItem={({item}) => (
+          <Card onPress={() => navigation.navigate('ChatScreen' , {userName: item.userName})}>
+            <UserInfo>
+              <UserImgWrapper>
+                <UserImg source={item.userImg} />
+              </UserImgWrapper>
+              <TextSection>
+                <UserInfoText>
+                  <UserName>{item.userName}</UserName>
+                  <PostTime>{item.messageTime}</PostTime>
+                </UserInfoText>
+                <MessageText>{item.messageText}</MessageText>
+              </TextSection>
+            </UserInfo>
+          </Card>
+        )}
+      />
+    </Container>
+  );
 };
 
 export default MessagesScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, 
-    alignItems: 'center', 
-    justifyContent: 'center'
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import * as Animatable from 'react-native-animatable';
-import DashboardList from '../Components/DashboardList'
+import DashboardList from '../Components/DashboardList';
 
 import Logo from '../Components/Logo';
 import {useTheme} from '@react-navigation/native';
@@ -31,9 +31,6 @@ const SignIn = ({navigation}) => {
             color="#50C2C9"
             onPress={() => navigation.navigate('MessageScreen')}
           />
-
-          
-        
         </Animatable.View>
       </View>
     </View>
@@ -83,8 +80,4 @@ const styles = StyleSheet.create({
     color: '#ff1744',
     fontSize: 18,
   },
-  
-
-
-  
 });
