@@ -3,6 +3,7 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Logo from '../Components/Logo';
 import {useTheme} from '@react-navigation/native';
 import {Button} from 'react-native';
@@ -27,31 +28,26 @@ const SignIn = ({navigation}) => {
       </View>
       <View style={[styles.footer]}>
         <Animatable.View animation="fadeInUpBig">
-          <View
-            style={styles.boxWrapper}>
-            <View
-              style={styles.boxstyle}>
-               <MaterialCommunityIcons
-            name="send-circle"
-            style={{marginBottom: 5, marginRight: 5}}
-            size={43}
-            color="#50C2C9"
-            onPress ={()=>navigation.navigate('ChatScreen')}
-          />
-              <Text style={styles.boxTxt} >Hello</Text>
+          <View style={styles.boxWrapper}>
+            <View style={styles.boxstyle}>
+              <MaterialCommunityIcons
+                name="chat"
+                style={{marginBottom: 5, marginRight: 5}}
+                size={43}
+                color="#50C2C9"
+                onPress={() => navigation.navigate('ChatScreen')}
+              />
+              <Text style={styles.boxTxt}>Chat</Text>
             </View>
-            <View
-              style={
-                styles.boxstyle
-              }>
-             <MaterialCommunityIcons
-            name="send-circle"
-            style={{marginBottom: 5, marginRight: 5}}
-            size={43}
-            color="#50C2C9"
-            onPress ={()=>navigation.navigate('ChatScreen')}
-          />
-              <Text style={styles.boxTxt}>Hello</Text>
+            <View style={styles.boxstyle}>
+              <FontAwesome
+                name="user-md"
+                style={{marginBottom: 5, marginRight: 5}}
+                size={43}
+                color="#50C2C9"
+                onPress={() => navigation.navigate('ChatScreen')}
+              />
+              <Text style={styles.boxTxt}>Doctor's</Text>
             </View>
           </View>
         </Animatable.View>
@@ -107,28 +103,25 @@ const styles = StyleSheet.create({
     width: 20,
     height: 30,
   },
-  boxWrapper :{
-  flexDirection: 'row',
-  width: 80,
-  
-  width: '100%',
-  paddingHorizontal: 20,
-  justifyContent: 'space-between',
-  
+  boxWrapper: {
+    flexDirection: 'row',
+    width: 80,
+
+    width: '100%',
+    paddingHorizontal: 20,
+    justifyContent: 'space-between',
   },
-  boxstyle : {
-   
+  boxstyle: {
     width: '45%',
     height: '100%',
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor : '#50C2C9',
-    borderWidth : 2,
-    
+    borderColor: '#50C2C9',
+    borderWidth: 2,
   },
-  boxTxt : {
-    color :'#50C2C9',
-    fontWeight : 'bold'
-  }
+  boxTxt: {
+    color: '#50C2C9',
+    fontWeight: 'bold',
+  },
 });
