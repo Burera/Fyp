@@ -15,8 +15,7 @@ const ChatScreen = () => {
         createdAt: new Date(),
         user: {
           _id: 2,
-          name: 'React Native',
-          avatar: 'https://placeimg.com/140/140/any',
+          avatar: require('../../assets/slide8.jpg'),
         },
       },
       {
@@ -25,20 +24,19 @@ const ChatScreen = () => {
         createdAt: new Date(),
         user: {
           _id: 1,
-          name: 'React Native',
-          avatar: 'https://placeimg.com/140/140/any',
+          avatar: require('../../assets/slide8.jpg'),
         },
       },
     ]);
   }, []);
 
   const onSend = useCallback((messages = []) => {
-    setMessages((previousMessages) =>
+    setMessages(previousMessages =>
       GiftedChat.append(previousMessages, messages),
     );
   }, []);
 
-  const renderSend = (props) => {
+  const renderSend = props => {
     return (
       <Send {...props}>
         <View>
@@ -53,7 +51,7 @@ const ChatScreen = () => {
     );
   };
 
-  const renderBubble = (props) => {
+  const renderBubble = props => {
     return (
       <Bubble
         {...props}
@@ -61,9 +59,9 @@ const ChatScreen = () => {
           right: {
             backgroundColor: '#50C2C9',
           },
-          left : {
-              backgroundColor : '#E8E8E8'
-          }
+          left: {
+            backgroundColor: '#E8E8E8',
+          },
         }}
         textStyle={{
           right: {
@@ -75,15 +73,13 @@ const ChatScreen = () => {
   };
 
   const scrollToBottomComponent = () => {
-    return(
-      <FontAwesome name='angle-double-down' size={22} color='#333' />
-    );
-  }
+    return <FontAwesome name="angle-double-down" size={22} color="#333" />;
+  };
 
   return (
     <GiftedChat
       messages={messages}
-      onSend={(messages) => onSend(messages)}
+      onSend={messages => onSend(messages)}
       user={{
         _id: 1,
       }}
