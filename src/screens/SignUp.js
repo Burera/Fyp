@@ -18,7 +18,7 @@ const SignIn = ({navigation}) => {
     <View style={styles.container}>
       <KeyboardAwareScrollView style={styles.header}>
         <View style={styles.imgoo}>
-          <Logo imgSource={require('../../assets/SignUp.png')} />
+          <Logo imgSource={require('../../assets/pic5.png')} />
 
           <Text
             style={[styles.text_header, {fontFamily: 'Montserrat-SemiBold'}]}>

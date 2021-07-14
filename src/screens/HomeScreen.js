@@ -8,18 +8,49 @@ import Logo from '../Components/Logo';
 import {useTheme} from '@react-navigation/native';
 import {Button} from 'react-native';
 import {Image} from 'react-native';
+import Swiper from 'react-native-swiper';
 
 const SignIn = ({navigation}) => {
   const {colors} = useTheme();
   return (
     <View style={styles.container}>
       <View style={styles.header}>
+        <View style={styles.sliderContainer}>
+          <Swiper
+            autoplay
+            horizontal={true}
+            height={200}
+            activeDotColor="#50C2C9">
+            <View style={styles.slide}>
+              <Image
+                source={require('../../assets/slide4.jpg')}
+                resizeMode="cover"
+                style={styles.sliderImage}
+              />
+            </View>
+            <View style={styles.slide}>
+              <Image
+                source={require('../../assets/slide5.jpg')}
+                resizeMode="cover"
+                style={styles.sliderImage}
+              />
+            </View>
+            <View style={styles.slide}>
+              <Image
+                source={require('../../assets/slide7.jpg')}
+                resizeMode="cover"
+                style={styles.sliderImage}
+              />
+            </View>
+          </Swiper>
+        </View>
+
         <View style={styles.imgoo}>
-          <Logo imgSource={require('../../assets/home2.png')} />
+          <Logo imgSource={require('../../assets/getStarted.png')} />
 
           <Text
             style={[styles.text_header, {fontFamily: 'Montserrat-SemiBold'}]}>
-            Welcome, Oliva Grace
+            Welcome Burera
           </Text>
           <Text style={styles.text_header_two}>
             Hi there! Nice to see you again.
@@ -58,16 +89,16 @@ const SignIn = ({navigation}) => {
 
 export default SignIn;
 const styles = StyleSheet.create({
-  imgoo: {
-    paddingTop: 25,
-  },
+  // imgoo: {
+  //   paddingTop: 25,
+  // },
 
   container: {
     flex: 1,
     backgroundColor: '#fff',
   },
   header: {
-    flex: 1,
+    flex: 4,
 
     paddingHorizontal: 20,
   },
@@ -78,6 +109,30 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 30,
     paddingHorizontal: 20,
     paddingVertical: 30,
+  },
+  sliderContainer: {
+    height: 200,
+    width: '98%',
+    marginTop: 10,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    borderRadius: 20,
+    backgroundColor: '#bcbcbc',
+  },
+
+  wrapper: {},
+
+  slide: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    borderRadius: 8,
+  },
+  sliderImage: {
+    height: '100%',
+    width: '100%',
+    alignSelf: 'center',
+    borderRadius: 8,
   },
 
   text_header: {
