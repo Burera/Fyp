@@ -13,7 +13,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
 
-const EmailInput = ({navigation}) => {
+const EmailInput = ({onChange}) => {
   const [data, setData] = React.useState({
     username: '',
     password: '',
@@ -24,7 +24,7 @@ const EmailInput = ({navigation}) => {
   });
 
   const textInputChange = val => {
-    if (val.trim().length >= 4) {
+    if (val.trim().length == 25) {
       setData({
         ...data,
         username: val,
@@ -38,6 +38,7 @@ const EmailInput = ({navigation}) => {
         check_textInputChange: false,
         isValidUser: false,
       });
+      onChange(val);
     }
   };
   return (
@@ -95,7 +96,7 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     marginTop: Platform.OS === 'ios' ? 0 : 0,
-  
+
     color: '#05375a',
   },
   Email: {

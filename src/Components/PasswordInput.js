@@ -13,8 +13,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import Entypo from 'react-native-vector-icons/Entypo';
 import LinearGradient from 'react-native-linear-gradient';
 
-const PasswordInput = props => {
-
+const PasswordInput = ({pass, onChange}) => {
   const [data, setData] = React.useState({
     username: '',
     password: '',
@@ -24,7 +23,7 @@ const PasswordInput = props => {
     isValidPassword: true,
   });
   const handlePasswordChange = val => {
-    if (val.trim().length >= 8) {
+    if (val.trim().length == 15) {
       setData({
         ...data,
         password: val,
@@ -36,6 +35,7 @@ const PasswordInput = props => {
         password: val,
         isValidPassword: false,
       });
+      onChange(val);
     }
   };
   const updateSecureTextEntry = () => {
@@ -46,7 +46,7 @@ const PasswordInput = props => {
   };
   return (
     /* <View>
-            <Text style={styles.text_footer_two}>{props.pass}</Text>
+            <Text style={styles.text_footer_two}>{pass}</Text>
             <View style={styles.action}>
 
                 <FontAwesome name="lock"
@@ -79,10 +79,11 @@ const PasswordInput = props => {
     <View>
       <LinearGradient colors={['#E5E5E5', '#E5E5E5']} style={styles.Email}>
         <TextInput
-          placeholder={props.pass}
+          placeholder={pass}
           placeholderTextColor="rgba(0, 0, 0, 0.7)"
-          onChangeText={(val) => handlePasswordChange(val)}
-          secureTextEntry={data.secureTextEntry ? true : false} style={styles.textInput}
+          onChangeText={val => handlePasswordChange(val)}
+          secureTextEntry={data.secureTextEntry ? true : false}
+          style={styles.textInput}
         />
       </LinearGradient>
     </View>
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     marginTop: Platform.OS === 'ios' ? 0 : 0,
-   
+
     color: '#05375a',
   },
   Email: {

@@ -34,11 +34,11 @@ const SignIn = ({navigation}) => {
         // animation="fadeInUpBig"
       >
         <Animatable.View animation="fadeInUpBig">
-          <EmailInput />
+          <EmailInput onChange={value => null} />
 
-          <PasswordInput pass="Enter Password" />
+          <PasswordInput pass="Enter Password" onChange={value => null} />
 
-          <PasswordInput pass="Confirm Password" />
+          <PasswordInput pass="Confirm Password" onChange={value => null} />
 
           <View style={styles.button}>
             <LinearGradient

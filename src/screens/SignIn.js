@@ -1,4 +1,5 @@
 import React from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
@@ -6,11 +7,20 @@ import PasswordInput from '../Components/PasswordInput';
 import EmailInput from '../Components/EmailInput';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
+import {customisedAction} from '../redux/actions';
 import Logo from '../Components/Logo';
 import {useTheme} from '@react-navigation/native';
+import {LOGIN} from '../Constants';
 
 const SignIn = ({navigation}) => {
   const {colors} = useTheme();
+
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  const loading = useSelector(({sessionReducer}) => sessionReducer.loading);
+  const dispatch = useDispatch();
+
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView style={styles.header}>
@@ -31,16 +41,23 @@ const SignIn = ({navigation}) => {
         // animation="fadeInUpBig"
       >
         <Animatable.View animation="fadeInUpBig">
-          <EmailInput />
+          <EmailInput onChange={value => setEmail(value)} />
 
-          <PasswordInput pass="Password" />
+          <PasswordInput
+            pass="Password"
+            onChange={value => setPassword(value)}
+          />
 
           <View style={styles.button}>
             <LinearGradient
               colors={['#50C2C9', '#50C2C9']}
               style={styles.signIn}>
               <TouchableOpacity
-                onPress={() => navigation.navigate('HomeScreen')}>
+                onPress={() =>
+                  dispatch(
+                    customisedAction(LOGIN, {email, password, navigation}),
+                  )
+                }>
                 <Text style={styles.sign}>SignIn</Text>
               </TouchableOpacity>
             </LinearGradient>
