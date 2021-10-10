@@ -1,6 +1,6 @@
 import {switchMap} from 'rxjs/operators';
 import {ofType} from 'redux-observable';
-
+import {RestClient} from '../../../services/network';
 import {customisedAction} from '../../actions';
 import {generalizedEpic} from '../generalizedEpic';
 import {
@@ -20,7 +20,7 @@ export class sessionEpic {
           END_POINTS.SignIn,
           {username, password},
           resObj => {
-            RestClient.setHeader('Authorization', resObj.id);
+            RestClient.setHeader('Authorization', resObj.token);
             navigation.navigate('HomeScreen');
             return customisedAction(LOGIN_SUCCESS, {session: resObj});
           },
