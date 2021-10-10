@@ -15,7 +15,7 @@ import {LOGIN} from '../Constants';
 const SignIn = ({navigation}) => {
   const {colors} = useTheme();
 
-  const [email, setEmail] = React.useState('');
+  const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 
   const loading = useSelector(({sessionReducer}) => sessionReducer.loading);
@@ -41,7 +41,7 @@ const SignIn = ({navigation}) => {
         // animation="fadeInUpBig"
       >
         <Animatable.View animation="fadeInUpBig">
-          <EmailInput onChange={value => setEmail(value)} />
+          <EmailInput onChange={value => setUsername(value)} />
 
           <PasswordInput
             pass="Password"
@@ -55,7 +55,7 @@ const SignIn = ({navigation}) => {
               <TouchableOpacity
                 onPress={() =>
                   dispatch(
-                    customisedAction(LOGIN, {email, password, navigation}),
+                    customisedAction(LOGIN, {username, password, navigation}),
                   )
                 }>
                 <Text style={styles.sign}>SignIn</Text>

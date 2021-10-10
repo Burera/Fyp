@@ -14,12 +14,13 @@ export class sessionEpic {
   static login = action$ =>
     action$.pipe(
       ofType(LOGIN),
-      switchMap(async ({payload: {email, password, navigation}}) => {
+      switchMap(async ({payload: {username, password, navigation}}) => {
         return generalizedEpic(
           'post',
-          END_POINTS.login,
-          {email, password},
+          END_POINTS.SignIn,
+          {username, password},
           resObj => {
+            RestClient.setHeader('Authorization', resObj.id);
             navigation.navigate('HomeScreen');
             return customisedAction(LOGIN_SUCCESS, {session: resObj});
           },
