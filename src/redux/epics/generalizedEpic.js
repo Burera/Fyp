@@ -17,10 +17,14 @@ export const generalizedEpic = async (
     const {status, data: resObj, problem} = response;
     console.log(response);
 
-    if (status && status === 200) return successCallback(resObj);
+    if ((status && status === 200) || status === 201)
+      return successCallback(resObj);
 
-    if (status && (status === 401 || status === 422 || status === 503)) {
-      Alert.alert(resObj.msg);
+    if (
+      status &&
+      (status === 401 || status === 422 || status === 503 || status === 400)
+    ) {
+      Alert.alert(resObj.message);
       return customisedAction(failureAction);
     }
 

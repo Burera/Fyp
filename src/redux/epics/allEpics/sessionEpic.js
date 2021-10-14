@@ -8,6 +8,9 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
   END_POINTS,
+  SIGNUP,
+  SIGNUP_FAILURE,
+  SIGNUP_SUCCESS,
 } from '../../../Constants';
 
 export class sessionEpic {
@@ -27,5 +30,34 @@ export class sessionEpic {
           LOGIN_FAILURE,
         );
       }),
+    );
+
+  static SignUp = action$ =>
+    action$.pipe(
+      ofType(SIGNUP),
+      switchMap(
+        async ({
+          payload: {
+            username,
+            password,
+            navigation,
+            email,
+            number,
+            first_name,
+            last_name,
+          },
+        }) => {
+          return generalizedEpic(
+            'post',
+            END_POINTS.SignUp,
+            {username, password, email, number, first_name, last_name},
+            resObj => {
+              navigation.navigate('SignIn');
+              return customisedAction(SIGNUP_SUCCESS);
+            },
+            SIGNUP_FAILURE,
+          );
+        },
+      ),
     );
 }

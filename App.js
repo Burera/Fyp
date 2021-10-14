@@ -119,8 +119,7 @@ const ChatStackScreen = ({navigation}) => (
     <ChatStack.Screen
       name="Chat"
       component={ChatScreen}
-      options={
-        {
+      options={{
         headerLeft: () => (
           <Icon.Button
             name="ios-arrow-back"
@@ -144,7 +143,7 @@ const App = () => {
         initialRouteName="Home"
         drawerContent={props => <DrawerContent {...props} />}>
         <Drawer.Screen name="SplashScreen" component={SplashStackScreen} />
-        <Drawer.Screen name="SignIn" component={SignInStackScreen} />
+        <Drawer.Screen name="SignIn" component={SignIn} />
         <Drawer.Screen name="SignUp" component={SignUp} />
         <Drawer.Screen name="HomeScreen" component={HomeStackScreen} />
         <Drawer.Screen name="Profile" component={Profile} />

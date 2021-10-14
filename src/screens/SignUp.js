@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
 import PasswordInput from '../Components/PasswordInput';
 import EmailInput from '../Components/EmailInput';
+import {useDispatch, useSelector} from 'react-redux';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-
+import {customisedAction} from '../redux/actions';
+import {SIGNUP} from '../Constants';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 
@@ -13,6 +15,12 @@ import Logo from '../Components/Logo';
 import {useTheme} from '@react-navigation/native';
 
 const SignIn = ({navigation}) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [first_name, setFirst_name] = useState('');
+
+  const dispatch = useDispatch();
+
   const {colors} = useTheme();
   return (
     <View style={styles.container}>
@@ -34,17 +42,36 @@ const SignIn = ({navigation}) => {
         // animation="fadeInUpBig"
       >
         <Animatable.View animation="fadeInUpBig">
-          <EmailInput onChange={value => null} />
+          <EmailInput onChange={value => setEmail(value)} />
 
-          <PasswordInput pass="Enter Password" onChange={value => null} />
+          <PasswordInput
+            pass="Enter Name"
+            onChange={value => setFirst_name(value)}
+          />
 
-          <PasswordInput pass="Confirm Password" onChange={value => null} />
+          <PasswordInput
+            pass="Enter Password"
+            onChange={value => setPassword(value)}
+          />
 
           <View style={styles.button}>
             <LinearGradient
               colors={['#50C2C9', '#50C2C9']}
               style={styles.signIn}>
-              <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+              <TouchableOpacity
+                onPress={() =>
+                  dispatch(
+                    customisedAction(SIGNUP, {
+                      email,
+                      number: '123344',
+                      first_name,
+                      last_name: 'abcdeff',
+                      username: email,
+                      password,
+                      navigation,
+                    }),
+                  )
+                }>
                 <Text style={styles.sign}>SignUp</Text>
               </TouchableOpacity>
             </LinearGradient>
