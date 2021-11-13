@@ -50,7 +50,25 @@ const DrawerContent = props => {
               icon={({color, size}) => (
                 <Icon name="account-outline" color={color} size={size} />
               )}
-              label="Profile"
+              label="Pharmacy"
+              onPress={() => {
+                props.navigation.navigate('Medicine');
+              }}
+            />
+            <DrawerItem
+              icon={({color, size}) => (
+                <Icon name="home-outline" color={color} size={size} />
+              )}
+              label="Appointment"
+              onPress={() => {
+                props.navigation.navigate('Home');
+              }}
+            />
+            <DrawerItem
+              icon={({color, size}) => (
+                <Icon name="account-outline" color={color} size={size} />
+              )}
+              label="Contact Us"
               onPress={() => {
                 props.navigation.navigate('Profile');
               }}
