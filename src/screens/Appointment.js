@@ -76,7 +76,10 @@ const Appointment = ({navigation}) => {
         onPress={() => navigation.navigate('DoctorDetails', Doctor)}>
         <View style={styles.card}>
           <View style={{alignItems: 'center', top: -40}}>
-            <Image source={Doctor.image} style={{height: 120, width: 120}} />
+            <Image
+              source={Doctor.image}
+              style={{height: 120, width: 120, borderRadius: 30}}
+            />
           </View>
           <View style={{marginHorizontal: 20}}>
             <Text style={{fontSize: 18, fontWeight: 'bold'}}>
@@ -93,9 +96,20 @@ const Appointment = ({navigation}) => {
               flexDirection: 'row',
               justifyContent: 'space-between',
             }}>
-            <Text style={{fontSize: 18, fontWeight: 'bold'}}>
-              ${Doctor.price}
-            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginTop: 10,
+              }}>
+              <View style={{flexDirection: 'row'}}>
+                <Icon name="star" size={15} color={COLORS.orange} />
+                <Icon name="star" size={15} color={COLORS.orange} />
+                <Icon name="star" size={15} color={COLORS.orange} />
+                <Icon name="star" size={15} color={COLORS.orange} />
+                <Icon name="star" size={15} color={COLORS.grey} />
+              </View>
+            </View>
             <View style={styles.addToCartBtn}>
               <Icon name="add" size={20} color={COLORS.white} />
             </View>

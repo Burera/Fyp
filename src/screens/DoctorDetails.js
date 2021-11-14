@@ -45,7 +45,7 @@ const DetailsScreen = ({navigation, route}) => {
             young infants through to the elderly.
           </Text>
           <View style={{marginTop: 40, marginBottom: 40}}>
-            <SecondaryButton title="Appointment Book" />
+            <SecondaryButton title="Make A Appointment" />
           </View>
         </View>
       </ScrollView>
