@@ -61,7 +61,7 @@ const DrawerContent = props => {
               )}
               label="Appointment"
               onPress={() => {
-                props.navigation.navigate('Home');
+                props.navigation.navigate('Appointment');
               }}
             />
             <DrawerItem

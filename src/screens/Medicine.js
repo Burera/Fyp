@@ -83,8 +83,8 @@ const Medicine = ({navigation}) => {
           <Animated.View style={{...style.cardOverLay, opacity}} />
           <View style={style.priceTag}>
             <Text
-              style={{color: COLORS.white, fontSize: 20, fontWeight: 'bold'}}>
-              ${Pharmacy.price}
+              style={{color: COLORS.white, fontSize: 15, fontWeight: 'bold'}}>
+              Rs {Pharmacy.price}
             </Text>
           </View>
           <Image source={Pharmacy.image} style={style.cardImage} />
@@ -175,14 +175,14 @@ const Medicine = ({navigation}) => {
           </View>
         </View>
       </View>
+      <View style={style.searchInputContainer}>
+        <Icon name="search" size={30} style={{marginLeft: 20}} />
+        <TextInput
+          placeholder="Search"
+          style={{fontSize: 20, paddingLeft: 10}}
+        />
+      </View>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={style.searchInputContainer}>
-          <Icon name="search" size={30} style={{marginLeft: 20}} />
-          <TextInput
-            placeholder="Search"
-            style={{fontSize: 20, paddingLeft: 10}}
-          />
-        </View>
         <CategoryList />
         <View>
           <Animated.FlatList
@@ -248,8 +248,11 @@ const style = StyleSheet.create({
     backgroundColor: COLORS.light,
     marginTop: 15,
     marginLeft: 20,
+    marginRight: 20,
     borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
     borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -279,8 +282,8 @@ const style = StyleSheet.create({
     borderTopRightRadius: 15,
   },
   priceTag: {
-    height: 60,
-    width: 80,
+    height: 50,
+    width: 60,
     backgroundColor: COLORS.primary,
     position: 'absolute',
     zIndex: 1,
