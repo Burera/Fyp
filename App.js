@@ -20,12 +20,12 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import DrawerContent from './src/Navigator/DrawerContent';
 import Medicine from './src/screens/Medicine';
 import Appointment from './src/screens/Appointment';
-// import BookmarkScreen from './src/screens/BookmarkScreen';
-import SupportScreen from './src/screens/SupportScreen';
+import Contact from './src/screens/Contact';
+import DiseaseSymptoms from './src/screens/DiseaseSymptoms';
 import ChatScreen from './src/screens/ChatScreen';
 import MessageScreen from './src/screens/MessageScreen';
 import DetailsScreen from './src/screens/DetailsScreen';
-
+import DoctorDetails from './src/screens/DoctorDetails';
 const SplashStack = createStackNavigator();
 const SignInStack = createStackNavigator();
 const ChatStack = createStackNavigator();
@@ -149,11 +149,12 @@ const App = () => {
         <Drawer.Screen name="HomeScreen" component={HomeStackScreen} />
         <Drawer.Screen name="Medicine" component={Medicine} />
         <Drawer.Screen name="Appointment" component={Appointment} />
-
-        <Drawer.Screen name="SupportScreen" component={SupportScreen} />
+        <Drawer.Screen name="Contact" component={Contact} />
+        <Drawer.Screen name="DiseaseSymptoms" component={DiseaseSymptoms} />
         <Drawer.Screen name="ChatScreen" component={ChatStackScreen} />
         <Drawer.Screen name="DetailsScreen" component={DetailsScreen} />
         <Drawer.Screen name="MessageScreen" component={MessageStackScreen} />
+        <Drawer.Screen name="DoctorDetails" component={DoctorDetails} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

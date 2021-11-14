@@ -6,13 +6,10 @@ const DoctorCategories = ({data}) => {
     <View style={styles.container}>
       <View>
         <Image source={data.background} style={styles.image} />
-        <View style={styles.milesView}>
-          <Text style={styles.milesText}>{data.miles} miles</Text>
-        </View>
       </View>
       <Text style={styles.name}>{data.name}</Text>
       <Text style={styles.description}>
-        {data.type} • {data.country} • ${data.currency}
+        {data.type} • {data.country}
       </Text>
       <View style={styles.smileList}>
         <Image
@@ -29,14 +26,17 @@ export default DoctorCategories;
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
-    backgroundColor: '#F1F2F6',
-    borderRadius: 10,
+    // padding: 10,
+    // backgroundColor: '#F1F2F6',
+    // borderRadius: 10,
     marginTop: 15,
+    justifyContent: 'center',
+    justifyContent: 'space-around',
+    margin: 0,
   },
   image: {
-    width: '100%',
-    height: 180,
+    width: '50%',
+    height: 150,
     borderRadius: 10,
   },
   name: {
@@ -60,18 +60,5 @@ const styles = StyleSheet.create({
   smileList: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
-
-  milesView: {
-    position: 'absolute',
-    backgroundColor: 'rgba(129,122,115,0.9)',
-    padding: 12,
-    borderRadius: 10,
-    bottom: 20,
-    left: 20,
-  },
-
-  milesText: {
-    color: '#000',
   },
 });

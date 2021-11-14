@@ -8,13 +8,25 @@ import {
   StatusBar,
   Image,
   Button,
+  Dimensions,
 } from 'react-native';
+import {
+  FlatList,
+  // ScrollView,
+  TextInput,
+  TouchableHighlight,
+  TouchableOpacity,
+} from 'react-native-gesture-handler';
 import SearchBar from '../Components/SearchBar';
 // import BottomBar from '../Components/BottomBar';
+import COLORS from '../consts/colors';
 import ItemType from '../Components/ItemType';
 import DoctorCategories from '../Components/DoctorCategories';
-
-const Appointment = () => {
+import Doctor from '../consts/Doctor';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+const {width} = Dimensions.get('screen');
+const cardWidth = width / 2 - 20;
+const Appointment = ({navigation}) => {
   const types = [
     {
       type: ' Brain',
@@ -34,9 +46,9 @@ const Appointment = () => {
     },
   ];
 
-  const listRestaurans = [
+  const ListsDoctors = [
     {
-      background: require('../assets/images/bread.png'),
+      background: require('../assets/images/doctor1.jpg'),
 
       name: `TANVEER BAIG`,
       type: 'Assistant Professor',
@@ -44,24 +56,7 @@ const Appointment = () => {
       smile: 97,
     },
     {
-      background: require('../assets/images//pho.png'),
-
-      name: `DR WARIS AHMAD`,
-      type: 'Clinical Assistant Professor',
-      country: 'Pakistan',
-
-      smile: 80,
-    },
-    {
-      background: require('../assets/images/bread.png'),
-
-      name: `TANVEER BAIG`,
-      type: 'Assistant Professor',
-      country: 'Pakistan',
-      smile: 97,
-    },
-    {
-      background: require('../assets/images//pho.png'),
+      background: require('../assets/images/doctor2.jpg'),
 
       name: `DR WARIS AHMAD`,
       type: 'Clinical Assistant Professor',
@@ -70,13 +65,59 @@ const Appointment = () => {
       smile: 80,
     },
   ];
-  const renderRestaurant = item => {
+  const renderDoctors = item => {
     return <DoctorCategories data={item} />;
+  };
+  const Card = ({Doctor}) => {
+    return (
+      <TouchableHighlight
+        underlayColor={COLORS.white}
+        activeOpacity={0.9}
+        onPress={() => navigation.navigate('DoctorDetails', Doctor)}>
+        <View style={styles.card}>
+          <View style={{alignItems: 'center', top: -40}}>
+            <Image source={Doctor.image} style={{height: 120, width: 120}} />
+          </View>
+          <View style={{marginHorizontal: 20}}>
+            <Text style={{fontSize: 18, fontWeight: 'bold'}}>
+              {Doctor.name}
+            </Text>
+            <Text style={{fontSize: 14, color: COLORS.grey, marginTop: 2}}>
+              {Doctor.Consultant}
+            </Text>
+          </View>
+          <View
+            style={{
+              marginTop: 10,
+              marginHorizontal: 20,
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+            }}>
+            <Text style={{fontSize: 18, fontWeight: 'bold'}}>
+              ${Doctor.price}
+            </Text>
+            <View style={styles.addToCartBtn}>
+              <Icon name="add" size={20} color={COLORS.white} />
+            </View>
+          </View>
+        </View>
+      </TouchableHighlight>
+    );
   };
   return (
     <>
       <StatusBar barStyle="dark-content" />
+
       <SafeAreaView style={styles.container}>
+        <View style={{paddingLeft: 23, paddingTop: 20}}>
+          <Icon
+            name="arrow-back-ios"
+            size={28}
+            color={COLORS.primary}
+            onPress={navigation.goBack}
+            sty
+          />
+        </View>
         <ScrollView style={styles.wrap} showsVerticalScrollIndicator={false}>
           <View style={styles.header}>
             <View style={styles.headerTitle}>
@@ -84,17 +125,29 @@ const Appointment = () => {
               <Text style={styles.description}>1240 Doctors availabe</Text>
             </View>
           </View>
-          <SearchBar />
-          <View style={styles.listItemType}>
-            {types.map((item, index) => {
-              return <ItemType selected={index == 1} {...item} />;
-            })}
+          {/* <SearchBar /> */}
+          <View style={styles.searchInputContainer}>
+            <Icon name="search" size={30} style={{marginLeft: 20}} />
+            <TextInput
+              placeholder="Search"
+              style={{fontSize: 20, paddingLeft: 10}}
+            />
           </View>
-          <View style={styles.listRestaurant}>
-            <Text style={styles.listRestaurantText}>Doctors Near You</Text>
-            <View style={styles.listRes}>
-              {listRestaurants.map(renderRestaurant)}
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <View style={styles.listItemType}>
+              {types.map((item, index) => {
+                return <ItemType selected={index == 1} {...item} />;
+              })}
             </View>
+          </ScrollView>
+          <View style={styles.listDoctor}>
+            <Text style={styles.listRestaurantText}>Doctors Near You</Text>
+            <FlatList
+              showsVerticalScrollIndicator={false}
+              numColumns={2}
+              data={Doctor}
+              renderItem={({item}) => <Card Doctor={item} />}
+            />
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -117,6 +170,18 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     width: '55%',
+  },
+  searchInputContainer: {
+    height: 50,
+    backgroundColor: COLORS.light,
+    marginTop: 15,
+
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   headerCart: {},
   heading: {
@@ -144,7 +209,7 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
-    padding: 16,
+    padding: 10,
     justifyContent: 'space-between',
   },
   numCart: {
@@ -159,7 +224,25 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
 
-  listRestaurant: {
+  listDoctor: {
     marginTop: 10,
+  },
+  card: {
+    height: 220,
+    width: cardWidth,
+    margin: 5,
+    marginBottom: 20,
+    marginTop: 50,
+    borderRadius: 15,
+    elevation: 13,
+    backgroundColor: COLORS.white,
+  },
+  addToCartBtn: {
+    height: 30,
+    width: 30,
+    borderRadius: 20,
+    backgroundColor: COLORS.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

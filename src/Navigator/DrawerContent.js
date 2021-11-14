@@ -48,7 +48,7 @@ const DrawerContent = props => {
             />
             <DrawerItem
               icon={({color, size}) => (
-                <Icon name="account-outline" color={color} size={size} />
+                <Icon name="medical-bag" color={color} size={size} />
               )}
               label="Pharmacy"
               onPress={() => {
@@ -66,11 +66,11 @@ const DrawerContent = props => {
             />
             <DrawerItem
               icon={({color, size}) => (
-                <Icon name="account-outline" color={color} size={size} />
+                <Icon name="meditation" color={color} size={size} />
               )}
-              label="Contact Us"
+              label="Disease Symptoms"
               onPress={() => {
-                props.navigation.navigate('Profile');
+                props.navigation.navigate('DiseaseSymptoms');
               }}
             />
 
@@ -78,9 +78,18 @@ const DrawerContent = props => {
               icon={({color, size}) => (
                 <Icon name="account-check-outline" color={color} size={size} />
               )}
+              label="Contact Us"
+              onPress={() => {
+                props.navigation.navigate('Contact');
+              }}
+            />
+            <DrawerItem
+              icon={({color, size}) => (
+                <Iconss name="support" color={color} size={size} />
+              )}
               label="Support"
               onPress={() => {
-                props.navigation.navigate('SupportScreen');
+                props.navigation.navigate('Contact');
               }}
             />
           </Drawer.Section>
