@@ -156,17 +156,19 @@ const Medicine = ({navigation}) => {
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
-      <View style={style.header}>
+      <View style={{paddingLeft: 23, paddingTop: 40}}>
         <Icon
           name="arrow-back-ios"
           size={28}
           color={COLORS.primary}
           onPress={navigation.goBack}
+          sty
         />
       </View>
+      {/* </View> */}
       <View style={style.header}>
         <View style={{paddingBottom: 15}}>
-          <Text style={{fontSize: 30, fontWeight: 'bold'}}>Medicne</Text>
+          <Text style={{fontSize: 30, fontWeight: 'bold'}}>Pharmacy</Text>
           <View style={{flexDirection: 'row'}}>
             <Text
               style={{fontSize: 30, fontWeight: 'bold', color: COLORS.primary}}>
@@ -178,6 +180,7 @@ const Medicine = ({navigation}) => {
       <View style={style.searchInputContainer}>
         <Icon name="search" size={30} style={{marginLeft: 20}} />
         <TextInput
+          placeholderTextColor="gray"
           placeholder="Search"
           style={{fontSize: 20, paddingLeft: 10}}
         />

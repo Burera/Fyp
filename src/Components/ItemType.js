@@ -5,7 +5,8 @@ import COLORS from '../consts/colors';
 const ItemType = ({type, image, selected}) => {
   return (
     <View style={styles.container}>
-      <View style={[styles.imgBg, selected && {backgroundColor: '#59B7C9'}]}>
+      <View
+        style={[styles.imgBg, selected && {backgroundColor: COLORS.primary}]}>
         {/* <Image
           source={image}
           resizeMode="contain"

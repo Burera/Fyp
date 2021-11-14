@@ -22,7 +22,7 @@ const DiseaseSymptoms = ({navigation}) => {
       </View>
       <View style={style.header}>
         <View style={{paddingBottom: 15}}>
-          <Text style={{fontSize: 30, fontWeight: 'bold'}}>Medicne</Text>
+          <Text style={{fontSize: 30, fontWeight: 'bold'}}>Disease</Text>
           <View style={{flexDirection: 'row'}}>
             <Text
               style={{fontSize: 30, fontWeight: 'bold', color: COLORS.primary}}>
@@ -34,6 +34,7 @@ const DiseaseSymptoms = ({navigation}) => {
       <View style={style.searchInputContainer}>
         <Icon name="search" size={30} style={{marginLeft: 20}} />
         <TextInput
+          placeholderTextColor="gray"
           placeholder="Search"
           style={{fontSize: 20, paddingLeft: 10}}
         />

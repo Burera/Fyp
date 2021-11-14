@@ -123,7 +123,7 @@ const Appointment = ({navigation}) => {
       <StatusBar barStyle="dark-content" />
 
       <SafeAreaView style={styles.container}>
-        <View style={{paddingLeft: 23, paddingTop: 20}}>
+        <View style={{paddingLeft: 23, paddingTop: 40}}>
           <Icon
             name="arrow-back-ios"
             size={28}
@@ -144,6 +144,7 @@ const Appointment = ({navigation}) => {
             <Icon name="search" size={30} style={{marginLeft: 20}} />
             <TextInput
               placeholder="Search"
+              placeholderTextColor="gray"
               style={{fontSize: 20, paddingLeft: 10}}
             />
           </View>
@@ -242,7 +243,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   card: {
-    height: 220,
+    height: 250,
     width: cardWidth,
     margin: 5,
     marginBottom: 20,

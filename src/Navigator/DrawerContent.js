@@ -59,7 +59,7 @@ const DrawerContent = props => {
               icon={({color, size}) => (
                 <Icon name="home-outline" color={color} size={size} />
               )}
-              label="Appointment"
+              label="Doctor's Appointment"
               onPress={() => {
                 props.navigation.navigate('Appointment');
               }}
