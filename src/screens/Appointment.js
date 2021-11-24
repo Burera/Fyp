@@ -150,14 +150,16 @@ const Appointment = ({navigation}) => {
               style={{fontSize: 20, paddingLeft: 10}}
             />
           </View>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            <View style={styles.listItemType}>
-              {types.map((item, index) => {
-                return <ItemType selected={index == 1} key={index} {...item} />;
-              })}
-            </View>
-          </ScrollView>
           <View style={styles.listDoctor}>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              <View style={styles.listItemType}>
+                {types.map((item, index) => {
+                  return (
+                    <ItemType selected={index == 1} key={index} {...item} />
+                  );
+                })}
+              </View>
+            </ScrollView>
             <Text style={styles.listRestaurantText}>Doctors Near You</Text>
             <FlatList
               showsVerticalScrollIndicator={false}
