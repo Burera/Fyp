@@ -18,14 +18,14 @@ const Doctors = [
     name: 'Dr. Moinuddin Khan',
     Consultant: 'Interventional Cardiology',
     price: '5.10',
-    image: require('../assets/images/doctor3.jpg'),
+    image: require('../assets/images/doctor11.jpg'),
   },
   {
     id: '4',
     name: 'Dr. Qurat ul Ain',
     Consultant: 'Neurology',
     price: '9.55',
-    image: require('../assets/images/doctor4.jpg'),
+    image: require('../assets/images/doctor22.jpg'),
   },
 ];
 

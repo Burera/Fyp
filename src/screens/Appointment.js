@@ -24,6 +24,7 @@ import ItemType from '../Components/ItemType';
 import DoctorCategories from '../Components/DoctorCategories';
 import Doctor from '../consts/Doctor';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Doctors from '../consts/Doctor';
 const {width} = Dimensions.get('screen');
 const cardWidth = width / 2 - 20;
 const Appointment = ({navigation}) => {
@@ -69,6 +70,7 @@ const Appointment = ({navigation}) => {
     return <DoctorCategories data={item} />;
   };
   const Card = ({Doctor}) => {
+    console.log(Doctor);
     return (
       <TouchableHighlight
         underlayColor={COLORS.white}
@@ -132,7 +134,7 @@ const Appointment = ({navigation}) => {
             sty
           />
         </View>
-        <ScrollView style={styles.wrap} showsVerticalScrollIndicator={false}>
+        <View style={styles.wrap} showsVerticalScrollIndicator={false}>
           <View style={styles.header}>
             <View style={styles.headerTitle}>
               <Text style={styles.heading}>Doctor's Categories</Text>
@@ -151,7 +153,7 @@ const Appointment = ({navigation}) => {
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <View style={styles.listItemType}>
               {types.map((item, index) => {
-                return <ItemType selected={index == 1} {...item} />;
+                return <ItemType selected={index == 1} key={index} {...item} />;
               })}
             </View>
           </ScrollView>
@@ -161,10 +163,10 @@ const Appointment = ({navigation}) => {
               showsVerticalScrollIndicator={false}
               numColumns={2}
               data={Doctor}
-              renderItem={({item}) => <Card Doctor={item} />}
+              renderItem={({item}, index) => <Card Doctor={item} key={index} />}
             />
           </View>
-        </ScrollView>
+        </View>
       </SafeAreaView>
     </>
   );
