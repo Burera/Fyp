@@ -50,7 +50,7 @@ const SignIn = ({navigation}) => {
 
           <Text
             style={[styles.text_header, {fontFamily: 'Montserrat-SemiBold'}]}>
-            Welcome Burera
+            Welcome to BAZbot
           </Text>
           <Text style={styles.text_header_two}>
             Hi there! Nice to see you again.
@@ -76,7 +76,7 @@ const SignIn = ({navigation}) => {
                 style={{marginBottom: 5, marginRight: 5}}
                 size={43}
                 color="#50C2C9"
-                onPress={() => navigation.navigate('ChatScreen')}
+                onPress={() => navigation.navigate('Appointment')}
               />
               <Text style={styles.boxTxt}>Doctor's</Text>
             </View>

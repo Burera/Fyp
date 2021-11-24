@@ -42,12 +42,8 @@ const SignIn = ({navigation}) => {
         // animation="fadeInUpBig"
       >
         <Animatable.View animation="fadeInUpBig">
-          <EmailInput onChange={value => setEmail(value)} />
-
-          <PasswordInput
-            pass="Enter Name"
-            onChange={value => setFirst_name(value)}
-          />
+          <EmailInput pass=" Enter Email" onChange={value => setEmail(value)} />
+          <EmailInput pass=" Enter Name" onChange={value => setEmail(value)} />
 
           <PasswordInput
             pass="Enter Password"
@@ -55,33 +51,34 @@ const SignIn = ({navigation}) => {
           />
 
           <View style={styles.button}>
-            <LinearGradient
-              colors={['#50C2C9', '#50C2C9']}
-              style={styles.signIn}>
-              <TouchableOpacity
-                onPress={() =>
-                  dispatch(
-                    customisedAction(SIGNUP, {
-                      email,
-                      number: '123344',
-                      first_name,
-                      last_name: 'abcdeff',
-                      username: email,
-                      password,
-                      navigation,
-                    }),
-                  )
-                }>
+            <TouchableOpacity
+              style={styles.signIn}
+              onPress={() =>
+                dispatch(
+                  customisedAction(SIGNUP, {
+                    email,
+                    number: '123344',
+                    first_name,
+                    last_name: 'abcdeff',
+                    username: email,
+                    password,
+                    navigation,
+                  }),
+                )
+              }>
+              <LinearGradient
+                colors={['#50C2C9', '#50C2C9']}
+                style={styles.signIn}>
                 <Text style={styles.sign}>SignUp</Text>
-              </TouchableOpacity>
-            </LinearGradient>
+              </LinearGradient>
+            </TouchableOpacity>
             <Text style={styles.or}>or</Text>
             <TouchableOpacity style={styles.forget}>
-              <Text style={styles.forget_password}>Forgot password?</Text>
+              <Text style={styles.forget_password}>Already Have Account?</Text>
 
               <Text
                 style={styles.forget_signUp}
-                onPress={() => navigation.navigate('SigIn')}>
+                onPress={() => navigation.navigate('SignIn')}>
                 SignIn
               </Text>
             </TouchableOpacity>

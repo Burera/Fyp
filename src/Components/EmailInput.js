@@ -13,7 +13,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
 
-const EmailInput = ({onChange}) => {
+const EmailInput = ({pass, onChange}) => {
   const [data, setData] = React.useState({
     username: '',
     password: '',
@@ -72,7 +72,7 @@ const EmailInput = ({onChange}) => {
     <View>
       <LinearGradient colors={['#E5E5E5', '#E5E5E5']} style={styles.Email}>
         <TextInput
-          placeholder="Enter your email"
+          placeholder={pass}
           placeholderTextColor="rgba(0, 0, 0, 0.7)"
           onChangeText={val => textInputChange(val)}
           style={styles.textInput}
@@ -105,6 +105,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 50,
+    marginTop: 15,
   },
 });
 

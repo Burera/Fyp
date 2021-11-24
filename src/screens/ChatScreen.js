@@ -11,24 +11,6 @@ const ChatScreen = () => {
     setMessages([
       {
         _id: 1,
-        text: 'Hello ChatBot',
-        createdAt: new Date(),
-        user: {
-          _id: 1,
-          avatar: require('../../assets/slide8.jpg'),
-        },
-      },
-      {
-        _id: 2,
-        text: 'Hi',
-        createdAt: new Date(),
-        user: {
-          _id: 2,
-          avatar: require('../../assets/slide8.jpg'),
-        },
-      },
-      {
-        _id: 3,
         text: 'How May help You',
         createdAt: new Date(),
         user: {
@@ -37,8 +19,8 @@ const ChatScreen = () => {
         },
       },
       {
-        _id: 4,
-        text: 'I m feeling heahache',
+        _id: 2,
+        text: 'Hello ChatBot',
         createdAt: new Date(),
         user: {
           _id: 1,

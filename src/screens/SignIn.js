@@ -41,7 +41,10 @@ const SignIn = ({navigation}) => {
         // animation="fadeInUpBig"
       >
         <Animatable.View animation="fadeInUpBig">
-          <EmailInput onChange={value => setUsername(value)} />
+          <EmailInput
+            pass=" Enter Email"
+            onChange={value => setUsername(value)}
+          />
 
           <PasswordInput
             pass="Password"
@@ -49,18 +52,15 @@ const SignIn = ({navigation}) => {
           />
 
           <View style={styles.button}>
-            <LinearGradient
-              colors={['#50C2C9', '#50C2C9']}
-              style={styles.signIn}>
-              <TouchableOpacity
-                onPress={() =>
-                  dispatch(
-                    customisedAction(LOGIN, {username, password, navigation}),
-                  )
-                }>
-                <Text style={styles.sign}>SignIn</Text>
-              </TouchableOpacity>
-            </LinearGradient>
+            <TouchableOpacity
+              style={styles.signIn}
+              onPress={() =>
+                dispatch(
+                  customisedAction(LOGIN, {username, password, navigation}),
+                )
+              }>
+              <Text style={styles.sign}>SignIn</Text>
+            </TouchableOpacity>
             <Text style={styles.or}>or</Text>
             <TouchableOpacity style={styles.forget}>
               <Text style={styles.forget_password}>Forgot password?</Text>
@@ -137,6 +137,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
+
+    backgroundColor: '#50C2C9',
   },
   sign: {
     color: '#fff',
